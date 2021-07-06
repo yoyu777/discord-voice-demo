@@ -12,7 +12,7 @@ class Broadcaster {
     constructor() {
         this.client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-        this.client.login('ODYxNTIzNzQ5NzMwOTEwMjM5.YOLChA.kWspi6DC8z9EPrlSXrMeRlgkUI8');
+        this.client.login(process.env.DISCORD_BOT_TOKEN);
 
         this.client.on('ready', () => {
             console.log(`Logged in as ${this.client.user.tag}!`);
@@ -21,16 +21,13 @@ class Broadcaster {
         });
 
         this.client.on('message', message => {
-            if (message.content === 'ping') {
-                message.channel.send('pong');
-            }
             if (message.content == 'play') {
                 this.playStory()
-                message.channel.send('Playing stotry')
+                message.channel.send(':speech_balloon: Playing stotry')
             }
             if (message.content == 'stop') {
                 this.stopStory()
-                message.channel.send(':zipper_mouth:')
+                message.channel.send(':zipper_mouth: Stop playing')
             }
         });
     }
