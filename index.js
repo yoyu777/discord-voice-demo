@@ -96,11 +96,11 @@ class Transcriber {
                     '-vn',
                     '-ar', '48k',
                     '-ac', '2',
-                    '-i', 'audio_s16le.raw',
+                    '-i', 'audio/audio_s16le.raw',
                     '-acodec', 'pcm_s16le',
                     '-ar', '16k',
                     '-ac', '1',
-                    'audio_LINEAR16.wav',
+                    'audio/audio_LINEAR16.wav',
                     '-y'
                 ])
             conversion.on('close', () => {
@@ -115,7 +115,7 @@ class Transcriber {
     getStream(user) {
         // Create a ReadableStream of s16le PCM audio
         const audio = this.voiceConnection.receiver.createStream(user, { mode: 'pcm' });
-        const file = fs.createWriteStream('audio_s16le.raw')
+        const file = fs.createWriteStream('audio/audio_s16le.raw')
         audio.pipe(file);
         return file
     }
@@ -157,7 +157,7 @@ class Transcriber {
         client.recognize({
             config: streamingConfig,
             audio: {
-                content: fs.readFileSync('audio_LINEAR16.wav').toString('base64')
+                content: fs.readFileSync('audio/audio_LINEAR16.wav').toString('base64')
             }
         }).then(([response]) => {
             const transcription = response.results.map(result => result.alternatives[0].transcript).join('\n');
