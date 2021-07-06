@@ -24,7 +24,8 @@ npm install
 
 ```
 GOOGLE_APPLICATION_CREDENTIALS=[path to the JSON credentials]
-DISCORD_BOT_TOKEN=[your Discord bot token]
+DISCORD_BOT_TOKEN_BROADCASTER=[your Discord bot token]
+DISCORD_BOT_TOKEN_TRANSCRIBER=[your Discord bot token]
 ```
 
 4. Run the bot

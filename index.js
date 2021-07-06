@@ -12,7 +12,7 @@ class Broadcaster {
     constructor() {
         this.client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-        this.client.login(process.env.DISCORD_BOT_TOKEN);
+        this.client.login(process.env.DISCORD_BOT_TOKEN_BROADCASTER);
 
         this.client.on('ready', () => {
             console.log(`Logged in as ${this.client.user.tag}!`);
@@ -57,7 +57,7 @@ class Transcriber {
     constructor() {
         this.client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-        this.client.login('ODYxNTM1MDE2MDkzMzUxOTQ2.YOLNAg.CA7KiaKMCAATSFLjc8aQF7eEXQc');
+        this.client.login(process.env.DISCORD_BOT_TOKEN_TRANSCRIBER);
 
         this.client.on('ready', () => {
             console.log(`Logged in as ${this.client.user.tag}!`);
