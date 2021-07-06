@@ -1,0 +1,9 @@
+.creds
+node_modules
+.DS_Store
+.env
+
+*.wav
+*.raw
+
+package-lock.json
